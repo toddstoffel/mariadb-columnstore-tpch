@@ -6,7 +6,7 @@ USE `tpch`;
 
 DROP TABLE IF EXISTS `customer`;
 
-CREATE TABLE `customer` (
+CREATE TABLE `CUSTOMER` (
   `C_CUSTKEY` int(11) DEFAULT NULL,
   `C_NAME` varchar(25) NOT NULL,
   `C_ADDRESS` varchar(40) NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE `customer` (
 
 DROP TABLE IF EXISTS `lineitem`;
 
-CREATE TABLE `lineitem` (
+CREATE TABLE `LINEITEM` (
   `L_ORDERKEY` int(11) NOT NULL,
   `L_PARTKEY` int(11) NOT NULL,
   `L_SUPPKEY` int(11) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `nation` (
 
 DROP TABLE IF EXISTS `orders`;
 
-CREATE TABLE `orders` (
+CREATE TABLE `ORDERS` (
   `O_ORDERKEY` int(11) DEFAULT NULL,
   `O_CUSTKEY` int(11) NOT NULL,
   `O_ORDERSTATUS` char(1) NOT NULL,
@@ -63,7 +63,7 @@ CREATE TABLE `orders` (
 
 DROP TABLE IF EXISTS `part`;
 
-CREATE TABLE `part` (
+CREATE TABLE `PART` (
   `P_PARTKEY` int(11) DEFAULT NULL,
   `P_NAME` varchar(55) NOT NULL,
   `P_MFGR` char(25) NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE `part` (
 
 DROP TABLE IF EXISTS `partsupp`;
 
-CREATE TABLE `partsupp` (
+CREATE TABLE `PARTSUPP` (
   `PS_PARTKEY` int(11) NOT NULL,
   `PS_SUPPKEY` int(11) NOT NULL,
   `PS_AVAILQTY` int(11) NOT NULL,
@@ -87,7 +87,7 @@ CREATE TABLE `partsupp` (
 
 DROP TABLE IF EXISTS `region`;
 
-CREATE TABLE `region` (
+CREATE TABLE `REGION` (
   `R_REGIONKEY` int(11) DEFAULT NULL,
   `R_NAME` char(25) NOT NULL,
   `R_COMMENT` varchar(152) DEFAULT NULL
@@ -95,7 +95,7 @@ CREATE TABLE `region` (
 
 DROP TABLE IF EXISTS `supplier`;
 
-CREATE TABLE `supplier` (
+CREATE TABLE `SUPPLIER` (
   `S_SUPPKEY` int(11) DEFAULT NULL,
   `S_NAME` char(25) NOT NULL,
   `S_ADDRESS` varchar(40) NOT NULL,
