@@ -2,7 +2,7 @@
 
 Git clone this project:
 ```
-git clone mariadb-columnstore-tpch
+git clone https://github.com/toddstoffel/mariadb-columnstore-tpch.git
 ```
 
 Navigate to the project folder:
@@ -15,9 +15,14 @@ Navigate to dbgen folder:
 cd dbgen
 ```
 
+Copy the makefile:
+```
+cp makefile.suite makefile
+```
+
 Edit the makefile:
 ```
-nano makefile.suite
+nano makefile
 ```
  
 Find the values CC, DATABASE, MACHINE and WORKLOAD and change them as follows
@@ -43,7 +48,7 @@ Quit nano and save the changes.
 
 Run the make command:
 ```
-make makefile.suite
+make makefile
 ```  
 
 Generate the files for TPC-H testing. The -s represents the scale factor which has properly defined values in TPC-H. The efault is 1 which represents 1 GB. For testing purposes, 1000 is used here, representing 1TB of data.
