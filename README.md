@@ -48,7 +48,7 @@ Quit nano and save the changes.
 
 Run the make command:
 ```
-make makefile
+make
 ```  
 
 Generate the files for TPC-H testing. The -s represents the scale factor which has properly defined values in TPC-H. The efault is 1 which represents 1 GB. For testing purposes, 1000 is used here, representing 1TB of data.
@@ -68,10 +68,18 @@ cd ..
 
 Create TPC-H Schema:
 ```
-mariadb < scripts/tpch.sql
+mariadb < scripts/schema.sql
 ```
 
 Load the data:
 ```
 ./scripts/load.sh
+```
+
+Run queries:
+```
+mariadb tpch < queries/01.sql
+mariadb tpch < queries/02.sql
+...
+mariadb tpch < queries/22.sql
 ```
