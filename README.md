@@ -15,37 +15,6 @@ Navigate to dbgen folder:
 cd dbgen
 ```
 
-Copy the makefile:
-```
-cp makefile.suite makefile
-```
-
-Edit the makefile:
-```
-nano makefile
-```
- 
-Find the values CC, DATABASE, MACHINE and WORKLOAD and change them as follows
-```
-################
-## CHANGE NAME OF ANSI COMPILER HERE
-################
-CC      = gcc
-# Current values for DATABASE are: INFORMIX, DB2, TDAT (Teradata)
-#                                  SQLSERVER, SYBASE, ORACLE, VECTORWISE
-# Current values for MACHINE are:  ATT, DOS, HP, IBM, ICL, MVS, 
-#                                  SGI, SUN, U2200, VMS, LINUX, WIN32 
-# Current values for WORKLOAD are:  TPCH
-DATABASE= ORACLE
-MACHINE = LINUX
-WORKLOAD = TPCH
-#
-...
-```
-
-Quit nano and save the changes.
-
-
 Run the make command:
 ```
 make
