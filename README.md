@@ -20,9 +20,9 @@ Run the make command:
 make
 ```  
 
-Generate the files for TPC-H testing. The -s represents the scale factor which has properly defined values in TPC-H. The efault is 1 which represents 1 GB. For testing purposes, 1000 is used here, representing 1TB of data.
+Generate the files for TPC-H testing. The -s represents the scale factor which has properly defined values in TPC-H.
 ```
-./dbgen -s 1000
+./dbgen -s 1
 ```  
 
 The generation of files will take some time. After completion, it will create a series of files ending with .tbl. To list them, type:
@@ -37,7 +37,7 @@ cd ..
 
 Create TPC-H Schema:
 ```
-mariadb < scripts/schema.sql
+mariadb -vvv < scripts/schema.sql
 ```
 
 Load the data:
@@ -47,8 +47,5 @@ Load the data:
 
 Run queries:
 ```
-mariadb tpch < queries/01.sql
-mariadb tpch < queries/02.sql
-...
-mariadb tpch < queries/22.sql
+./scripts/run_all_queries.sh
 ```
