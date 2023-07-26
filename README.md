@@ -25,11 +25,6 @@ Generate the files for TPC-H testing. The -s represents the scale factor which h
 ./dbgen -s 1
 ```  
 
-The generation of files will take some time. After completion, it will create a series of files ending with .tbl. To list them, type:
-```
-ls -l *.tbl
-```
-
 Navigate back to project root folder:
 ```
 cd ..
