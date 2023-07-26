@@ -1,106 +1,106 @@
-DROP DATABASE IF EXISTS `tpch`;
+drop database if exists `tpch`;
 
-CREATE DATABASE `tpch`;
+create database `tpch`;
 
-USE `tpch`;
+use `tpch`;
 
-DROP TABLE IF EXISTS `customer`;
+drop table if exists `customer`;
 
-CREATE TABLE `customer` (
-  `C_CUSTKEY` int(11) DEFAULT NULL,
-  `C_NAME` varchar(25) NOT NULL,
-  `C_ADDRESS` varchar(40) NOT NULL,
-  `C_NATIONKEY` int(11) NOT NULL,
-  `C_PHONE` char(15) NOT NULL,
-  `C_ACCTBAL` decimal(15,2) NOT NULL,
-  `C_MKTSEGMENT` char(10) NOT NULL,
-  `C_COMMENT` varchar(117) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `customer` (
+  `c_custkey` int(11) default null,
+  `c_name` varchar(25) not null,
+  `c_address` varchar(40) not null,
+  `c_nationkey` int(11) not null,
+  `c_phone` char(15) not null,
+  `c_acctbal` decimal(15,2) not null,
+  `c_mktsegment` char(10) not null,
+  `c_comment` varchar(117) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `lineitem`;
+drop table if exists `lineitem`;
 
-CREATE TABLE `lineitem` (
-  `L_ORDERKEY` int(11) NOT NULL,
-  `L_PARTKEY` int(11) NOT NULL,
-  `L_SUPPKEY` int(11) NOT NULL,
-  `L_LINENUMBER` int(11) NOT NULL,
-  `L_QUANTITY` decimal(15,2) NOT NULL,
-  `L_EXTENDEDPRICE` decimal(15,2) NOT NULL,
-  `L_DISCOUNT` decimal(15,2) NOT NULL,
-  `L_TAX` decimal(15,2) NOT NULL,
-  `L_RETURNFLAG` char(1) NOT NULL,
-  `L_LINESTATUS` char(1) NOT NULL,
-  `L_SHIPDATE` date NOT NULL,
-  `L_COMMITDATE` date NOT NULL,
-  `L_RECEIPTDATE` date NOT NULL,
-  `L_SHIPINSTRUCT` char(25) NOT NULL,
-  `L_SHIPMODE` char(10) NOT NULL,
-  `L_COMMENT` varchar(44) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `lineitem` (
+  `l_orderkey` int(11) not null,
+  `l_partkey` int(11) not null,
+  `l_suppkey` int(11) not null,
+  `l_linenumber` int(11) not null,
+  `l_quantity` decimal(15,2) not null,
+  `l_extendedprice` decimal(15,2) not null,
+  `l_discount` decimal(15,2) not null,
+  `l_tax` decimal(15,2) not null,
+  `l_returnflag` char(1) not null,
+  `l_linestatus` char(1) not null,
+  `l_shipdate` date not null,
+  `l_commitdate` date not null,
+  `l_receiptdate` date not null,
+  `l_shipinstruct` char(25) not null,
+  `l_shipmode` char(10) not null,
+  `l_comment` varchar(44) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `nation`;
+drop table if exists `nation`;
 
-CREATE TABLE `nation` (
-  `N_NATIONKEY` int(11) DEFAULT NULL,
-  `N_NAME` char(25) NOT NULL,
-  `N_REGIONKEY` int(11) NOT NULL,
-  `N_COMMENT` varchar(152) DEFAULT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `nation` (
+  `n_nationkey` int(11) default null,
+  `n_name` char(25) not null,
+  `n_regionkey` int(11) not null,
+  `n_comment` varchar(152) default null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `orders`;
+drop table if exists `orders`;
 
-CREATE TABLE `orders` (
-  `O_ORDERKEY` int(11) DEFAULT NULL,
-  `O_CUSTKEY` int(11) NOT NULL,
-  `O_ORDERSTATUS` char(1) NOT NULL,
-  `O_TOTALPRICE` decimal(15,2) NOT NULL,
-  `O_ORDERDATE` date NOT NULL,
-  `O_ORDERPRIORITY` char(15) NOT NULL,
-  `O_CLERK` char(15) NOT NULL,
-  `O_SHIPPRIORITY` int(11) NOT NULL,
-  `O_COMMENT` varchar(79) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `orders` (
+  `o_orderkey` int(11) default null,
+  `o_custkey` int(11) not null,
+  `o_orderstatus` char(1) not null,
+  `o_totalprice` decimal(15,2) not null,
+  `o_orderdate` date not null,
+  `o_orderpriority` char(15) not null,
+  `o_clerk` char(15) not null,
+  `o_shippriority` int(11) not null,
+  `o_comment` varchar(79) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `part`;
+drop table if exists `part`;
 
-CREATE TABLE `part` (
-  `P_PARTKEY` int(11) DEFAULT NULL,
-  `P_NAME` varchar(55) NOT NULL,
-  `P_MFGR` char(25) NOT NULL,
-  `P_BRAND` char(10) NOT NULL,
-  `P_TYPE` varchar(25) NOT NULL,
-  `P_SIZE` int(11) NOT NULL,
-  `P_CONTAINER` char(10) NOT NULL,
-  `P_RETAILPRICE` decimal(15,2) NOT NULL,
-  `P_COMMENT` varchar(23) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `part` (
+  `p_partkey` int(11) default null,
+  `p_name` varchar(55) not null,
+  `p_mfgr` char(25) not null,
+  `p_brand` char(10) not null,
+  `p_type` varchar(25) not null,
+  `p_size` int(11) not null,
+  `p_container` char(10) not null,
+  `p_retailprice` decimal(15,2) not null,
+  `p_comment` varchar(23) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `partsupp`;
+drop table if exists `partsupp`;
 
-CREATE TABLE `partsupp` (
-  `PS_PARTKEY` int(11) NOT NULL,
-  `PS_SUPPKEY` int(11) NOT NULL,
-  `PS_AVAILQTY` int(11) NOT NULL,
-  `PS_SUPPLYCOST` decimal(15,2) NOT NULL,
-  `PS_COMMENT` varchar(199) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `partsupp` (
+  `ps_partkey` int(11) not null,
+  `ps_suppkey` int(11) not null,
+  `ps_availqty` int(11) not null,
+  `ps_supplycost` decimal(15,2) not null,
+  `ps_comment` varchar(199) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `region`;
+drop table if exists `region`;
 
-CREATE TABLE `region` (
-  `R_REGIONKEY` int(11) DEFAULT NULL,
-  `R_NAME` char(25) NOT NULL,
-  `R_COMMENT` varchar(152) DEFAULT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `region` (
+  `r_regionkey` int(11) default null,
+  `r_name` char(25) not null,
+  `r_comment` varchar(152) default null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
 
-DROP TABLE IF EXISTS `supplier`;
+drop table if exists `supplier`;
 
-CREATE TABLE `supplier` (
-  `S_SUPPKEY` int(11) DEFAULT NULL,
-  `S_NAME` char(25) NOT NULL,
-  `S_ADDRESS` varchar(40) NOT NULL,
-  `S_NATIONKEY` int(11) NOT NULL,
-  `S_PHONE` char(15) NOT NULL,
-  `S_ACCTBAL` decimal(15,2) NOT NULL,
-  `S_COMMENT` varchar(101) NOT NULL
-) ENGINE=Columnstore DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+create table `supplier` (
+  `s_suppkey` int(11) default null,
+  `s_name` char(25) not null,
+  `s_address` varchar(40) not null,
+  `s_nationkey` int(11) not null,
+  `s_phone` char(15) not null,
+  `s_acctbal` decimal(15,2) not null,
+  `s_comment` varchar(101) not null
+) engine=columnstore default charset=utf8mb3 collate=utf8mb3_general_ci;
